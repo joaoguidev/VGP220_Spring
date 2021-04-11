@@ -18,6 +18,7 @@ int main(int argc, char* argv[])
 	std::cout << NonRecursiveFibonacci(5) << std::endl; //Expected result: 5
 
 	PrintFibonacciLessThan15(7); //Expected result: 0 1 1 2 3 5 8 13
+	//std::cout << PrintFibonacciLessThan15(7) << std::endl;
 
 	std::cout << std::endl;// ->Adding an extra line
 
@@ -33,6 +34,8 @@ int RecursiveMultiplication(int a, int b)
 	//You can use addition(+), subtraction(-) and bitShifting(<< or >>), but you
 	//should minimize the number of those operations.
 
+
+
 	return 0;
 }
 
@@ -40,7 +43,28 @@ int NonRecursiveFibonacci(int n)
 {
 	//TODO: Convert the recursive fibonacci that we did in class
 	//to a non recursive method, using a bottom-up approach.
-	return 0;
+	//f(0) = 0           = 0
+	//f(1) = 1           = 1
+	//f(2) = f(0) + f(1) = 1
+	//f(3) = f(1) + f(2) = 2
+	//f(4) = f(2) + f(3) = 3
+	//f(n) = f(n-2) + f(n-1)
+
+	assert(n >= 0);
+	int current = 0;
+	if (n <= 1)
+	{
+		return n;
+	}
+	else {
+		for (int index = 2, fibA = 0 , fibB = 1 ; index <= n; index++)
+		{
+			current = fibA + fibB;
+			fibA = fibB; // f(n-2)
+			fibB = current; // f(n-1)
+		}
+	}
+	return current;
 }
 
 int PrintFibonacciLessThan15(int n)
@@ -50,7 +74,21 @@ int PrintFibonacciLessThan15(int n)
 	//PrintFibonacciLessThan15(7) -> "0 1 1 2 3 5 8 13". You just need to print what is between "".
 	//Don't forget that is less than 15, so use assert if the method is being used outside the
 	//boundaries of the function.
+	assert(n >= 0);
+	int fibA = 0;
+	int fibB = 0;
+	if (n <= 1)
+	{
+		return n;
+	}
+	else {
+		fibA = PrintFibonacciLessThan15(n - 2);
+		fibB = PrintFibonacciLessThan15(n - 1);
+		std::cout << fibA + fibB << " ";
+		return fibA + fibB;
+	}
 	return 0;
+
 }
 
 int printRecursiveFactorialLessThan50(int n)
