@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
 	std::cout << std::endl;// ->Adding an extra line
 
 	printRecursiveFactorialLessThan50(10);//Expected result: 10 * 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1
-
+	//DynamicProgrammingFunc(10);
 	return 0;
 }
 
@@ -132,5 +132,5 @@ int DynamicProgrammingFunc(int n)
 		return n - 2;
 	}
 
-	return DynamicProgrammingFunc(n - 3) - (DynamicProgrammingFunc(n - 1) * DynamicProgrammingFunc(n - 2));
+return DynamicProgrammingFunc(n - 3) - (DynamicProgrammingFunc(n - 1) * DynamicProgrammingFunc(n - 2));
 }
