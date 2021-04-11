@@ -13,7 +13,7 @@ int DynamicProgrammingFunc(int n);
 int main(int argc, char* argv[])
 {
 	//Tests:
-	std::cout << RecursiveMultiplication(2, 5) << std::endl; // Expected result: 10
+	std::cout << RecursiveMultiplication(2,5) << std::endl; // Expected result: 10
 
 	std::cout << NonRecursiveFibonacci(5) << std::endl; //Expected result: 5
 
@@ -32,10 +32,19 @@ int RecursiveMultiplication(int a, int b)
 	//without using the operator *
 	//You can use addition(+), subtraction(-) and bitShifting(<< or >>), but you
 	//should minimize the number of those operations.
-
-
-
-	return 0;
+	if (a == 0 || b == 0) {
+		return 0;
+	} 
+	if (a > 1)
+	{
+		return b + RecursiveMultiplication(a - 1, b);
+	}
+	if (a <= -1)
+	{
+		return RecursiveMultiplication(-a, -b);
+	}
+	return b;
+	
 }
 
 int NonRecursiveFibonacci(int n)
