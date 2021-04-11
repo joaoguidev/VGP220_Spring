@@ -18,7 +18,6 @@ int main(int argc, char* argv[])
 	std::cout << NonRecursiveFibonacci(5) << std::endl; //Expected result: 5
 
 	PrintFibonacciLessThan15(7); //Expected result: 0 1 1 2 3 5 8 13
-	//std::cout << PrintFibonacciLessThan15(7) << std::endl;
 
 	std::cout << std::endl;// ->Adding an extra line
 
@@ -74,19 +73,17 @@ int PrintFibonacciLessThan15(int n)
 	//PrintFibonacciLessThan15(7) -> "0 1 1 2 3 5 8 13". You just need to print what is between "".
 	//Don't forget that is less than 15, so use assert if the method is being used outside the
 	//boundaries of the function.
-	assert(n >= 0);
-	int fibA = 0;
-	int fibB = 0;
-	if (n <= 1)
+	assert(n>=0);//This assert is redundant
+	int maxFib = NonRecursiveFibonacci(n);
+	int index = 0;
+	assert(maxFib < 15);
+
+	while (index <= n-1)
 	{
-		return n;
+		std::cout << NonRecursiveFibonacci(index) << " ";
+		++index;
 	}
-	else {
-		fibA = PrintFibonacciLessThan15(n - 2);
-		fibB = PrintFibonacciLessThan15(n - 1);
-		std::cout << fibA + fibB << " ";
-		return fibA + fibB;
-	}
+	std::cout << maxFib << " ";
 	return 0;
 
 }
@@ -99,7 +96,21 @@ int printRecursiveFactorialLessThan50(int n)
 	//As an example:
 	//printRecursiveFactorialLessThan50(10) -> "10 * 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1"
 	//The function just prints what is between "".
-	return 0;
+	//0! = 1 //Due to the definition
+	//1! = 1
+	//2! = 2 * 1 = 2
+	//3! = 3 * 2 * 1 = 6
+	//n! = n * (n-1) * (n-2) ...n
+	assert(n >= 0 && n < 50);
+	if (n == 0)
+	{
+		return 1;
+	}
+	std::cout << n;
+	if (n > 1) {
+		std::cout << " * ";
+	}
+	return printRecursiveFactorialLessThan50(n-1);
 }
 
 //TODO: Show with dynamic programming, the results and calls for DynamicProgrammingFunc(10)
