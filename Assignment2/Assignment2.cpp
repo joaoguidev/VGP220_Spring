@@ -11,11 +11,13 @@ int foo_1(int n)
     while (current < n)
     {
         counter++;
+        //std::cout << counter << std::endl;
         current *= 2;
+
     }
     return current;
 }
-//Answer: 
+//Answer: O(log2(n))
 
 
 //TODO:
@@ -30,21 +32,28 @@ int pow_a(int m, int n)
     }
     return ret;
 }
-//Answer for pow_a: 
+//Answer for pow_a: O(n)
 
 int pow_b(int m, int n) {
     int ret = 1;
     int k = m;
     int i = n;
+
+    int test = 0;
     while (i > 0)
     {
-        if (i % 2 == 1) ret *= k;
+        test++;
+        if (i % 2 == 1)
+        {
+            ret *= k;
+        }
         k *= k;
         i /= 2;
+        std::cout << test << std::endl;
     }
     return ret;
 }
-//Answer for pow_b: 
+//Answer for pow_b: O(log2(n))
 
 //TODO:
 //Question 3:
@@ -55,10 +64,10 @@ int removeDuplicates(char arr[], int n)
 {
     int len = n;
     int i = 0;           // index of current item to find
-    while (i < len)
+    while (i < len)//=== O(n)
     {
         int j;           // will be index of duplicate of arr[i]
-        for (j = i + 1; j < len; j++)
+        for (j = i + 1; j < len; j++) //=== O(n -1)
         {
             if (arr[i] == arr[j]) break;
         }
@@ -78,7 +87,7 @@ int removeDuplicates(char arr[], int n)
     }
     return len;
 }
-//Answer:
+//Answer: Worst Case: O(n^2)
 
 //TODO:
 //Question 4: 
@@ -87,7 +96,16 @@ int removeDuplicates(char arr[], int n)
 //For example: Pow(3, 3) means that is 3 ^ 3 and the returned array will be: [1, 3, 9, 27]
 int* Pow(int n, int e)
 {
-    return new int();
+    int *arr = new int[4];
+    int temp = 1;
+    for (int i = 0; i <= e; i++)
+    {
+        arr[i] = 440+i;
+       // temp *= n;
+    }
+        std::cout << arr[2] << " " << std::endl;
+
+    return new int(*arr);
 }
 
 //TODO:
@@ -96,6 +114,18 @@ int* Pow(int n, int e)
 // [2, 3, 4, 1, 6, 20, 0]
 void DisplayArray(int* arr, int n)
 {
+    if (n < 0)
+    {
+        std::cout << "Please provide correct element count" << std::endl;
+    }
+    else {
+        std::cout << "[";
+        for (int i = 0; i < n; i++)
+        {
+            std::cout << arr[n] << " ";
+        }
+        std::cout << "]";
+    }
 
 }
 
@@ -126,4 +156,7 @@ int main(int argc, char* argv[])
     int* powerResults = Pow(number, order);
     DisplayArray(powerResults, order + 1);
     //EXPECTED RESULT: [1, 3, 9, 27]
+
+    //foo_1(5000);
+    //std::cout << pow_b(3,4) << std::endl;
 }
