@@ -96,16 +96,16 @@ int removeDuplicates(char arr[], int n)
 //For example: Pow(3, 3) means that is 3 ^ 3 and the returned array will be: [1, 3, 9, 27]
 int* Pow(int n, int e)
 {
-    int *arr = new int[4];
+    int *arr = new int[e+1];
     int temp = 1;
     for (int i = 0; i <= e; i++)
     {
-        arr[i] = 440+i;
-       // temp *= n;
+        arr[i] = temp;
+        temp *= n;
     }
-        std::cout << arr[2] << " " << std::endl;
+        std::cout << arr[3] << " " << std::endl;
 
-    return new int(*arr);
+    return arr;
 }
 
 //TODO:
@@ -147,6 +147,75 @@ void DisplayArray(int* arr, int n)
 //4)The effect of a fall is the same for all eggs.
 //5)If an egg breaks when dropped, then it would break if dropped from a higher floor.
 
+bool ThrowEgg(int floor) {
+    //First floor the egg breaks is 57
+    int eggSurvives = 57;
+    if (floor < eggSurvives)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+int EggHeightCalculator(int floors, int low, int high) {
+
+    int halfHigh = 0;
+    int halfLow = 0;
+    int mid = high - low;
+    if (ThrowEgg(high))
+    {
+        halfHigh = EggHeightCalculator(floors, low, high = (high - low) / 2);
+    }
+
+    if (ThrowEgg(low))
+    {
+        halfLow = EggHeightCalculator(floors, low = high - low, high);
+    }
+
+    if (halfHigh < halfLow)
+    {
+        return halfHigh;
+    }
+    else {
+        return halfLow;
+    }
+
+    //if (floors <= 1) {
+    //    return 1;
+    //}
+    //current = floors / 2;
+    //if (ThrowEgg(current))
+    //{
+    //    low = current;
+    //    floors = (high - low);
+    //}
+    //else
+    //{
+    //    high = current;
+    //    floors = (high - low) ;
+    //}
+
+    //return EggHeightCalculator(floors,  low,  high,  current);
+
+
+    //for (int i = floors; i > 0; i/2)
+    //{
+    //    middle = high / 2;
+    //    if (ThrowEgg(middle) )
+    //    {
+    //        low = middle;
+    //        middle = (high - low) / 2;
+    //    }
+    //    else 
+    //    {
+    //        high = middle;
+    //        middle = (high - low) / 2;
+    //    }
+    //}
+}
 
 int main(int argc, char* argv[])
 {
@@ -159,4 +228,5 @@ int main(int argc, char* argv[])
 
     //foo_1(5000);
     //std::cout << pow_b(3,4) << std::endl;
+    std::cout <<"\n\nBonus "<<EggHeightCalculator(100, 1, 100) << std::endl;
 }
