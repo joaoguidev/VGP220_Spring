@@ -122,7 +122,11 @@ void DisplayArray(int* arr, int n)
         std::cout << "[";
         for (int i = 0; i < n; i++)
         {
-            std::cout << arr[n] << " ";
+            std::cout << arr[i];
+            if (i != n-1) 
+            {
+                std::cout << " ,";
+            }
         }
         std::cout << "]";
     }
