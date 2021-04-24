@@ -3,6 +3,7 @@
 
 //Name: Joao Dantas
 //StudentId: 2032559
+//Grade: 100/100
 
 int RecursiveMultiplication(int a, int b);
 int NonRecursiveFibonacci(int n);
@@ -13,19 +14,20 @@ int DynamicProgrammingFunc(int n);
 int main(int argc, char* argv[])
 {
 	//Tests:
-	std::cout << RecursiveMultiplication(2,5) << std::endl; // Expected result: 10
+	std::cout << RecursiveMultiplication(2,0) << std::endl; // Expected result: 10
 
-	std::cout << NonRecursiveFibonacci(5) << std::endl; //Expected result: 5
+	std::cout << NonRecursiveFibonacci(8) << std::endl; //Expected result: 5
 
-	PrintFibonacciLessThan15(7); //Expected result: 0 1 1 2 3 5 8 13
+	PrintFibonacciLessThan15(5); //Expected result: 0 1 1 2 3 5 8 13
 
 	std::cout << std::endl;// ->Adding an extra line
 
-	printRecursiveFactorialLessThan50(10);//Expected result: 10 * 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1
+	printRecursiveFactorialLessThan50(49);//Expected result: 10 * 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1
 	//DynamicProgrammingFunc(10);
 	return 0;
 }
 
+//COMMENT: In this case, you don't need to check for b==0. But it's all good!
 int RecursiveMultiplication(int a, int b)
 {
 	//TODO: Write a recursive function to multiply two positive integers
@@ -47,6 +49,7 @@ int RecursiveMultiplication(int a, int b)
 	
 }
 
+//COMMENT: GOOD!
 int NonRecursiveFibonacci(int n)
 {
 	//TODO: Convert the recursive fibonacci that we did in class
@@ -75,6 +78,7 @@ int NonRecursiveFibonacci(int n)
 	return current;
 }
 
+//COMMENT: GREAT!
 int PrintFibonacciLessThan15(int n)
 {
 	//TODO: Create a method that will print all the fibonacci sequence
@@ -96,7 +100,7 @@ int PrintFibonacciLessThan15(int n)
 	return 0;
 
 }
-
+//COMMENT: GOOD!
 int printRecursiveFactorialLessThan50(int n)
 {
 	//TODO: Create a method that will print recursive
