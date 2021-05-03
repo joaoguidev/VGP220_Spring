@@ -1,5 +1,8 @@
 #include <iostream>
 
+//Grade: 100/100 + 5 Bonus.
+
+//Comment: The notation that we use for log, we don't need to show the base. O(log n) should be fine.
 //TODO:  
 //Question 1:
 //How much time does the following method take? Use the big-O notation in terms
@@ -34,6 +37,8 @@ int pow_a(int m, int n)
 }
 //Answer for pow_a: O(n)
 
+
+//COMMENT: You don't need to represent the base of the log on the notation. O(log n) is fine
 int pow_b(int m, int n) {
     int ret = 1;
     int k = m;
