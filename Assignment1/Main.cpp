@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 	//Tests:
 	std::cout << RecursiveMultiplication(2,0) << std::endl; // Expected result: 10
 
-	std::cout << NonRecursiveFibonacci(8) << std::endl; //Expected result: 5
+	std::cout << NonRecursiveFibonacci(7) << std::endl; //Expected result: 5
 
 	PrintFibonacciLessThan15(5); //Expected result: 0 1 1 2 3 5 8 13
 
