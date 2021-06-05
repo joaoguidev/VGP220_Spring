@@ -6,6 +6,8 @@
 //Students names will be the data.
 //Students with greater grade should leave the queue first.
 
+//Grade: 100/100.
+
 int main(int argc, char* argv[])
 {
 	PriorityQueue<std::string> priorityQueue({ INT_MIN, "ERROR" });
