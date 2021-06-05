@@ -135,6 +135,20 @@ public:
 
 	}
 
+	//Error: -5. You should not change mHead value in a display function. Display functions should not change member data.
+	//A better way to implement is to use a recursive call. 
+	/*void printReverse(Node* node)
+	{
+		if (node->next != nullptr)
+		{
+			printReverse(node->next);
+		}
+
+		std::cout << node->data << " ";
+	}*/
+
+	//And inside the DisplayReverseList, you call printReverse(mHead);
+
 	//Displays all the elements of the linked list in reverse order
 	void DisplayReverseList()
 	{

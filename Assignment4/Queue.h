@@ -48,6 +48,14 @@ public:
 		}
 	}
 
+	//ERROR -5: It depends on how are you inserting. You should follow a FIFO order, first in first out. So dequeu is not expecting an index
+	// to remove, it's expecting a container to fill it with a value. The parameter in this case will be an output for whoever is using.
+	// So for exampple, if you insert 1, 2, 3, 4, 5 And then you use:
+	// int returnedValue = 0;
+	// Dequeue(returnedValue);
+	// returnedValue new value should be 1, because it was the firt number to be inserted in your queue. And when you display, you should have:
+	// front-> 2, 3, 4, 5 <-rear
+	
 	//Removes an element from the queue and returns this element in the output parameter
 	//Also it returns true if the object was removed and false if the Queue is empty
 	bool Daqueue(T& output)
