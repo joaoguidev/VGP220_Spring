@@ -6,7 +6,7 @@
 #include "Dictionary.h"
 
 
-
+//Grade: 100/ 100 - Really liked the way there you thought about your dictionary! Congrats!
 int main()
 {
 	Dictionary<int> d(10);
